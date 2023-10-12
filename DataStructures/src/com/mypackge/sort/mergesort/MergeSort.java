@@ -23,7 +23,7 @@ public class MergeSort {
 	
 	
 	private int[] merge(int []arr, int start,int mid,int end) {
-		System.out.println("start: "+start+" mid: "+mid+"  end; "+end);
+		//System.out.println("start: "+start+" mid: "+mid+"  end; "+end);
 		int[] leftarr=new int[mid-start+2];
 		int[] rightarr=new int[end-mid+1];
 		
