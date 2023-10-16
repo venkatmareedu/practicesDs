@@ -75,6 +75,14 @@ public class AVLTree {
 	}
 	
 	
+	
+	
+	public void delete(int data) {
+		
+	}
+	
+	
+	
 	private Node rightRotation(Node imbalanceNode) {
 		
 		Node newNode=imbalanceNode.left;
