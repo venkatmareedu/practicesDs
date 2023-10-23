@@ -51,6 +51,46 @@ public class Graph {
 		
 	}
 	
+	
+	
+	public void bellmanFord(Node sourceNode) {
+		sourceNode.distance=0;
+		
+		for(int i=0;i<list.size();i++) {
+			for(Node node:list) {
+				for(Node n:node.neighbours) {
+					if(n.distance>node.distance+node.weightMap.get(n)) {
+						n.distance=node.distance+node.weightMap.get(n);
+						n.parent=node;
+					}
+				}
+			}
+		}
+		for(Node n:list) {
+			System.out.print(n.name+" distance: "+n.distance +"   path:-->");
+			printParent(n);
+			System.out.println();
+		}
+		System.out.println();
+		for(Node node:list) {
+			for(Node n:node.neighbours) {
+				if(n.distance>node.distance+node.weightMap.get(n)) {
+					System.out.println("graph has negative cycle....");
+					return;
+				}
+			}
+		}
+		System.out.println("No negative graph...");
+		for(Node n:list) {
+			System.out.print(n.name+" distance: "+n.distance +"   path:-->");
+			printParent(n);
+			System.out.println();
+		}
+		
+	}
+	
+	
+	
 	void printParent(Node node) {
 		if(node!=null) {
 			printParent(node.parent);

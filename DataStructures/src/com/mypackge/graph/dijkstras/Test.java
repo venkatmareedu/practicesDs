@@ -25,7 +25,7 @@ public class Test {
 		graph.addWeightGraph(4, 6, 9);
 		graph.addWeightGraph(5, 6, 7);
 		
-		graph.dijkstras(list.get(0));	
+		graph.bellmanFord(list.get(0));	
 	}
 
 }
