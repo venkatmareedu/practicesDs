@@ -91,6 +91,53 @@ public class Graph {
 	
 	
 	
+	public void floydwarshall() {
+		
+		int v[][]=new int[list.size()][list.size()];
+		
+		for(int i=0;i<list.size();i++) {
+			for(int j=0;j<list.size();j++) {
+				
+				if(i==j) {
+					v[i][j]=0;
+				}else if(list.get(i).weightMap.containsKey(list.get(j))) {
+					v[i][j]=list.get(i).weightMap.get(list.get(j));
+				}else {
+					v[i][j]=100;
+				}
+				
+			}
+		}
+		
+//		
+		
+		
+			for(int i=0;i<list.size();i++) {
+				for(int j=0;j<list.size();j++) {
+					for(int k=0;k<list.size();k++) {
+					
+					if(v[i][j]>v[i][k]+v[k][j]) {
+						v[i][j]=v[i][k]+v[k][j];
+						
+					}
+					
+				}
+				
+			}
+		}
+		
+		for(int i=0;i<list.size();i++) {
+			for(int j=0;j<list.size();j++) {
+				System.out.print(v[i][j]+" ");
+			}
+			System.out.println();
+			}
+//		
+		
+	}
+	
+	
+	
 	void printParent(Node node) {
 		if(node!=null) {
 			printParent(node.parent);
